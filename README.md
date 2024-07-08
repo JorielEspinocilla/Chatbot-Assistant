@@ -1,5 +1,5 @@
 
-# OMPH
+# Chatbot-Assistant
 
 A Chatbot for Organic Market PH website
 
