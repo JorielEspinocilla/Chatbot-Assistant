@@ -1,7 +1,7 @@
 
 # Chatbot-Assistant
 
-A Chatbot for Organic Market PH website
+A Chatbot Assistant for your website
 
 
 ## Installing Modules
