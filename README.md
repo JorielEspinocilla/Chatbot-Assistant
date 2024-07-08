@@ -6,12 +6,6 @@ A Chatbot for Organic Market PH website
 
 ## Installing Modules
 
-To download and install required modules, run the following command
-
-```bash
-pip install -r requirements.txt
-```
-
 
 ## Secret Keys
 
