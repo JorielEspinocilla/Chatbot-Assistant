@@ -5,7 +5,7 @@ A Chatbot Assistant for your website
 
 
 ## Installing Modules
-
+Clone this repository, then run `npm install` in its root directory.
 
 ## Secret Keys
 
