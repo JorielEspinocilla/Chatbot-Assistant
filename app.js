@@ -4,20 +4,20 @@ const bodyParser = require("body-parser");
 const os = require("os");
 const dotenv = require("dotenv");
 const OpenAI = require("openai");
-const rateLimit = require("express-rate-limit");  // Import the rate-limit middleware
-dotenv.config();  // Load environment variables
+const rateLimit = require("express-rate-limit");  
+dotenv.config();  
 
 const app = express();
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,  // Use the environment variable for API key
+  apiKey: process.env.OPENAI_API_KEY,  
 });
 app.use(cors());
 app.use(bodyParser.json());
 
 // Define the rate limit rules
 const limiter = rateLimit({
-  windowMs: process.env.WINDOWS_MS, // 1 minute
-  max: process.env.MAX, // Limit each IP requests per `window`
+  windowMs: process.env.WINDOWS_MS, 
+  max: process.env.MAX_REQ, 
   message: "Too many requests from this IP, please try again after a minute.",
 });
 
@@ -26,7 +26,7 @@ app.use(limiter);
 
 (async () => {
   const assistant = await openai.beta.assistants.retrieve(
-    process.env.OPENAI_ASSISTANT_ID  // Use the environment variable for Assistant ID
+    process.env.OPENAI_ASSISTANT_ID  
   );
   console.log(assistant);
   app.get("/start", async (req, res) => {
@@ -47,7 +47,7 @@ app.use(limiter);
     });
     const run = await openai.beta.threads.runs.createAndPoll(threadId, {
       assistant_id: assistantId,
-      max_tokens: process.env.MAX_TOKENS,  // Limit the output tokens
+      max_tokens: process.env.MAX_TOKENS,  
     });
     const messages = await openai.beta.threads.messages.list(run.thread_id);
     const response = messages.data[0].content[0].text.value;
