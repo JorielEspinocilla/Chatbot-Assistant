@@ -15,6 +15,9 @@ To run this project, create an .env file, you will need to add the following env
 
 `OPENAI_ASSISTANT_ID` = YOUR_OPENAI_ASSISTANT_ID
 
+`WINDOW_MS` = 1 * 60 * 1000   `# 1 minute`
+
+`MAX_REQ` = 1            `# Limit each IP requests per 'window'`
 
 
 ## API Testing
