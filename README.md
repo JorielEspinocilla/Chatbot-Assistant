@@ -19,6 +19,7 @@ To run this project, create an .env file, you will need to add the following env
 
 `MAX_REQ` = 1            `# Limit each IP requests per 'window'`
 
+`MAX_COMPLETION_TOKENS` = 250 `# Limit each (input + output) tokens per user message`
 
 ## API Testing
 

@@ -46,6 +46,7 @@ app.use(limiter);
     console.log(`Message creation response: ${JSON.stringify(messageResponse)}`);
     const run = await openai.beta.threads.runs.createAndPoll(threadId, {
       assistant_id: assistantId,
+      max_completion_tokens: +process.env.MAX_COMPLETION_TOKENS || 100
     });
     const messages = await openai.beta.threads.messages.list(run.thread_id);
     const response = messages.data[0].content[0].text.value;
